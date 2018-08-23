@@ -3,6 +3,34 @@ $is_auth = (bool) rand(0, 1);
 
 $user_name = 'Дмитрий';
 $user_avatar = 'img/user-pic.jpg';
+
+$categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+$lots = [1=>['name'=>'2014 Snowboard',
+                 'category'=>$categories[0],
+                 'price'=>10999,
+                 'url'=>'img/lot-1.jpg'],
+            2=>['name'=>'2017 Snowboard',
+                 'category'=>$categories[0],
+                 'price'=>15999,
+                 'url'=>'img/lot-2.jpg'],
+            3=>['name'=>'Крепления Union',
+                 'category'=>$categories[1],
+                 'price'=>10500,
+                 'url'=>'img/lot-3.jpg'],
+            4=>['name'=>'Ботинки DC Mutiny Charcoal',
+                 'category'=>$categories[2],
+                 'price'=>8000,
+                 'url'=>'img/lot-4.jpg'],
+            5=>['name'=>'Куртка DC',
+                'category'=>$categories[3],
+                'price'=>7500,
+                'url'=>'img/lot-5.jpg'],
+            6=>['name'=>'Маска Oakley',
+                'category'=>$categories[5],
+                'price'=>4400,
+                'url'=>'img/lot-6.jpg'],
+];
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -105,24 +133,15 @@ $user_avatar = 'img/user-pic.jpg';
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <li class="nav__item">
-                <a href="all-lots.html">Доски и лыжи</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Крепления</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Ботинки</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Одежда</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Инструменты</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Разное</a>
-            </li>
+            <?php $i = 0;
+            while ($i < count($categories)){
+                print('<li class="nav__item">
+                <a href="all-lots.html">' . $categories[$i] . '</a>
+            </li>'
+                );
+                $i++;
+            }
+            ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
